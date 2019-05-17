@@ -2,11 +2,11 @@
 namespace SNL {
 class noncopyable {
 public:
-    noncopyable(const noncopyable&) = delete;
-    void operator=(const noncopyable&) = delete;
-private:
-    noncopyable() = default;
-    ~noncopyable() = default;
-};
-};
+  noncopyable(const noncopyable &) = delete;
+  void operator=(const noncopyable &) = delete;
 
+protected:
+  noncopyable() = default;
+  ~noncopyable() = default;
+};
+}; // namespace SNL
