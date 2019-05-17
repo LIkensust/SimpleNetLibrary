@@ -1,8 +1,8 @@
 #include <iostream>
 #include <pthread.h>
 #include <thread>
-#include "../Condition.h"
-#include "../Mutex.h"
+#include "Condition.h"
+#include "Mutex.h"
 #include <vector>
 #include <time.h>
 #include <stdlib.h>
@@ -19,6 +19,7 @@ void threadheadler() {
     MutexLockGuard tmp(mutex_);
     condition_++; 
     sleep(1);
+    cout<<i<<endl;
   }
   con_.notify();
 }
@@ -27,6 +28,7 @@ void thread_fun() {
   MutexLockGuard tmp(mutex_);
   while(condition_<5)
   con_.wait();
+  cout<<"safe"<<endl;
 }
 
 int main()

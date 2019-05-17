@@ -127,7 +127,7 @@ private:
     explicit UnassignGuard(MutexLock &owner) : owner_(owner) {
       owner_.unassignHolder();
     }
-    ~UnassignGuard() { owner_.assertLocked(); }
+    ~UnassignGuard() { owner_.assignHolder(); }
 
   private:
     MutexLock &owner_;
