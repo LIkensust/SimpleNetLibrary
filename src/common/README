@@ -1,0 +1,16 @@
+SNL/common/base    基础组件
+
+一：noncopyable  &  copyable
+  1.description:
+    这是两个经常被使用的基类通过继承noncopyable使子类不可被拷贝构造，不可通过
+    operator=赋值。通过继承copyable标识一个子类可被拷贝。尽管不继承该类也可以
+    使子类有拷贝属性，但是项目中规定需要显式的继承以起到标识的作用。
+  2.detail:
+    noncopyable & copyable 都将构造函数 析构函数设置为protected。
+
+二：Atomic
+  1.description:
+    这是一个模板类 用以实现原子操作。
+
+
+

@@ -1,7 +1,7 @@
 #pragma once
 namespace SNL {
 class copytable {
-public:
+protected:
   copytable() = default;
   ~copytable() = default;
 };
