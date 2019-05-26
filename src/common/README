@@ -11,6 +11,30 @@ SNL/common/base    基础组件
 二：Atomic
   1.description:
     这是一个模板类 用以实现原子操作。
+  2.detail:
+    实现方法：_sync_*
+    get()  getAndAdd(x) addAndGet(x)  incrementAndGet()
+    decrementAndGet()  add(x)  increment() decrement()
+    getAndSet(newValue)
 
+三：Types
+  1.description:
+    Taken from google-protobuf stubs/common.h
+  2.detail:
+    实现了更健壮的强制类型转换:
+    implicit_cast<typename To,Typename From> 
+    we can use it in this way:implicit_cast<To>(expr).
+    Why do we need inplicit_cast? It is safe that use implicit_cast as a version
+    of static_cast or const_cast for upcasting in the type iserarchy.
 
+    template<typename To,typename From>
+    inline To down_cast(From *f) {
+      // Ensures that To is a sub-type of From *.This test is here only
+      // for compile-time type checking, and has no overhead in an optimized
+      // build at run-time, as it will be optimized away completely.
+      if(false) {
+        implicit_cast<From *,To>(0);
+      }
+      return static_cast<To>(f);
+    }
 
